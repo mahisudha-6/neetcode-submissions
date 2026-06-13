@@ -18,25 +18,6 @@ Use a sliding window with a hash set to maintain unique characters. Expand the w
 - Time: O(n), where `n` is the length of `s`.
 - Space: O(min(n, m)), where `m` is the character set size.
 
-## Java Solution
-```java
-class Solution {
-    public int lengthOfLongestSubstring(String s) {
-     int l=0;
-     int max=0;
-    HashSet<Character> set=new HashSet<>();
-    for(int r=0;r<s.length();r++){
-      while(set.contains(s.charAt(r))){
-            set.remove(s.charAt(l++));
-      }
-      set.add(s.charAt(r));
-      max=Math.max(max,r-l+1);
-    }
-      return max;   
-    }
-}
-```
-
 ## Key Concepts
 - Sliding Window
 - HashSet
