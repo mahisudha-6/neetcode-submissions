@@ -22,36 +22,6 @@ Encode each string with its length followed by a separator character, then appen
 - Time: O(n), where `n` is the total length of all strings.
 - Space: O(n), for the encoded string and decoded list.
 
-## Java Solution
-```java
-class Solution {
-
-    public String encode(List<String> strs) {
-        StringBuilder sb = new StringBuilder();
-        for(String str:strs){
-            sb.append(str.length());
-            sb.append('#');
-            sb.append(str);
-        }
-        return sb.toString();
-    }
-
-    public List<String> decode(String str) {
-        List<String> list = new ArrayList<>();
-        int i=0;
-        while(i<str.length()){
-            int j=i;
-            while(str.charAt(j)!='#'){
-                j++;
-            }
-            int len =Integer.parseInt(str.substring(i,j));
-            String word =str.substring(j+1,j+len+1);
-            list.add(word);
-            i=j+1+len;
-        }
-        return list;
-    }
-}
 ```
 
 ## Key Concepts
