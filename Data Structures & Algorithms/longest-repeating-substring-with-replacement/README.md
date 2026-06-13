@@ -18,29 +18,6 @@ Use a sliding window and maintain the count of each character in the window. Tra
 - Time: O(n), where `n` is the length of `s`.
 - Space: O(1), because the count array size is fixed at 26.
 
-## Java Solution
-```java
-class Solution {
-    public int characterReplacement(String s, int k) {
-        int[] count = new int[26];
-        int left = 0;
-        int maxFreq = 0;
-        int res = 0;
-        for (int right = 0; right < s.length(); right++) {
-            char c = s.charAt(right);
-            count[c - 'A']++;
-            maxFreq = Math.max(maxFreq, count[c - 'A']);
-            while ((right - left + 1) - maxFreq > k) {
-                count[s.charAt(left) - 'A']--;
-                left++;
-            }
-            res = Math.max(res, right - left + 1);
-        }
-        return res;
-    }
-}
-```
-
 ## Key Concepts
 - Sliding Window
 - Arrays
