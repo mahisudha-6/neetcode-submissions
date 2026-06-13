@@ -17,27 +17,11 @@ Use a hash map to collect strings by their sorted character signature. For each 
 3. Return the values of the hash map as a list of lists.
 
 ## Time Complexity
-- Time: O(n * k log k), where `n` is the number of strings and `k` is the maximum string length.
-- Space: O(n * k), used by the hash map and the grouped output.
+- Time: O(n * k log k),
+- where `n` is the number of strings and `k` is the maximum string length.
+- Space: O(n * k),
+- used by the hash map and the grouped output.
 
-## Java Solution
-```java
-class Solution {
-    public List<List<String>> groupAnagrams(String[] strs) {
-       HashMap <String,List<String>> hm = new HashMap<>();
-       for(String str:strs){
-        char[] ch = str.toCharArray();
-        Arrays.sort(ch);
-        String sorted = new String(ch);
-        if(!hm.containsKey(sorted)){
-            hm.put(sorted,new ArrayList<>());
-        }
-        hm.get(sorted).add(str);
-       }
-       return new ArrayList<>(hm.values());
-    }
-}
-```
 
 ## Key Concepts
 - HashMap
